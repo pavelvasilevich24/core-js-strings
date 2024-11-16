@@ -193,7 +193,7 @@ function sumOfCodes(str) {
   if (str) {
     let sum = 0;
     for (let j = 0; j < str.length; j += 1) {
-      sum += str.charCodeAt(i);
+      sum += str.charCodeAt(j);
     }
     return sum;
   }
@@ -309,7 +309,8 @@ function containsSubstring(str, substring) {
  *   countVowels('XYZ') => 1
  */
 function countVowels(str) {
-  throw new Error('Not implemented');
+  const res = str.match(/[AEIOUYaeiouy]/gi);
+  return res === null ? 0 : res.length;
 }
 
 /**
@@ -342,7 +343,7 @@ function isPalindrome(str) {
  *   findLongestWord('A long and winding road') => 'winding'
  *   findLongestWord('No words here') => 'words'
  */
-function findLongestWord(sentence) {
+function findLongestWord(str) {
   const replacedStr = str.toLowerCase().replaceAll(/[^a-z]+/g, '');
   for (let i = 0; i < replacedStr.length / 2; i += 1) {
     if (replacedStr[i] !== replacedStr[replacedStr.length - 1 - i]) {
